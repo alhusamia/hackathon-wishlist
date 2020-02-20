@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light   py-3">
+  <div class="container">
+
+  <a class="navbar-brand js-scroll-trigger" href="{% url 'start' %}" >Wishlist</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <form class="form-inline">
+    {% if request.user.is_authenticated %}
+
+          <a href="{% url 'wisher-list' %}">
+          <div class="nav-link navbar-brand order-2" > {{request.user}}</div></a>
+
+          <button type="button" class="btn btn-danger"><a href="{% url 'signout' %}" style="color:white;text-decoration: none;">Signout</a></button>
+      {% else %}
+      <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-info" ><a href="{% url 'signin' %}" style="color:white;text-decoration: none;"> Signin</a></button>
+      <button type="button" class="btn btn-dark"><a href="{% url 'signup' %}"style="color:white;text-decoration: none;">Signup</a></button>
+
+      </div>
+
+
+
+      {% endif %}
+  </form>
+</div>
+</nav>

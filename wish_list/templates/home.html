@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+
+
+<div class="container h-100">
+  <div class="row align-items-center h-100">
+    <div class="mx-auto">
+      <div class="h-100  justify-content-center">
+        <div class=" justify-content-center">
+          {% if request.user.is_authenticated %}
+  <a  href="{% url 'wisher-list' %}" >
+    <button type="button" class="btn btn-primary btn-lg " >Start creating a list</button>
+  </a>
+  {% else %}
+  <a  href="{% url 'signin' %}">
+    <button type="button" class="btn btn-primary btn-lg " >Start creating a list</button>
+  </a>
+  {% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

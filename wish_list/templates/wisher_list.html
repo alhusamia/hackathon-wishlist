@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}List{% endblock title %}
+
+{% block content %}
+
+<div class="row pb-4 px-4">
+  <a href="{% url 'wisher-create'%}"><button type="button" class="btn btn-outline-primary">Create</button></a>
+</div>
+<div class="row">
+	{% for wisher in wishers %}
+<div class="col-sm-4">
+	<div class="card">
+		<div class="card-body">
+    <a href="{{wisher.url}}" target="_blank" >
+      {% if wisher.image %}
+      <img  src="{{wisher.image.url}}" enctype="multipart/form-data" style="width:100%" >
+
+      {% endif %}
+			<h5 class="card-text text-center">{{wisher.name}}</h5></a>
+      <a href="{% url 'wisher-delete'  wisher.id %}" class="btn mx-auto" style="background-color: #FFA500; color: #000034;">Delete</a>
+		</div>
+	</div>
+</div>
+	{% endfor %}
+</div>
+
+{% endblock content %}
